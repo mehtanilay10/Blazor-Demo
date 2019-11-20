@@ -1,0 +1,21 @@
+﻿<div class="form-check">
+    <input class="form-check-input" type="checkbox"
+           value="@CheckboxValue" @onchange="@OnCheckChange" id="@CheckboxId" />
+    <label class="form-check-label" for="@CheckboxId">
+        @CheckboxText
+    </label>
+</div>
+
+@code {
+    [Parameter]
+    public string CheckboxId { get; set; }
+
+    [Parameter]
+    public string CheckboxText { get; set; }
+
+    [Parameter]
+    public string CheckboxValue { get; set; }
+
+    [Parameter]
+    public EventCallback<ChangeEventArgs> OnCheckChange { get; set; }
+}

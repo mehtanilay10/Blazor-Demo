@@ -1,0 +1,27 @@
+﻿@page "/Session32/GithubProfileForm"
+@inject HttpClient httpClient
+
+<h3>GithubProfileForm</h3>
+
+<EditForm Model="@FormModel" OnValidSubmit="@OnSubmit">
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <InputText Id="Username" @bind-Value="@FormModel.Username" class="form-control"></InputText>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+<GithubProfileDetailsComponent @ref="DetailsComponent"></GithubProfileDetailsComponent>
+
+@code {
+    GithubProfileFormModel FormModel = new GithubProfileFormModel();
+    GithubProfileDetailsComponent DetailsComponent;
+
+    public async Task OnSubmit()
+    {
+        string response = await httpClient.GetStringAsync($"https://api.github.com/users/{FormModel.Username}");
+        var ProfileDetailsModel = Newtonsoft.Json.JsonConvert.DeserializeObject<GithubProfileDetailsModel>(response);
+        DetailsComponent.LoadData(ProfileDetailsModel);
+    }
+}

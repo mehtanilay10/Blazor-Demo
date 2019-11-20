@@ -1,0 +1,44 @@
+﻿@page  "/Session29/StudentForm"
+
+<h3>StudentForm</h3>
+
+<EditForm Model="@model" OnValidSubmit="@OnValidSubmit">
+
+    <div class="form-group">
+        <label for="FullName">Full Name</label>
+        <InputText Id="FullName" @bind-Value="@model.FullName" class="form-control"></InputText>
+    </div>
+
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth</label>
+        <InputDate Id="DateOfBirth" @bind-Value="@model.DateOfBirth" class="form-control"></InputDate>
+    </div>
+
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <InputNumber Id="Age" @bind-Value="@model.Age" class="form-control"></InputNumber>
+    </div>
+
+    <div class="form-group">
+        <label for="Country">Country</label>
+        <InputSelect Id="Country" @bind-Value="@model.Country" class="form-control">
+            <option value="">-- Select --</option>
+            <option value="US">US</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+        </InputSelect>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</EditForm>
+
+@code{
+
+    StudentFormModel model = new StudentFormModel();
+
+    private void OnValidSubmit()
+    {
+        Console.WriteLine(model);
+    }
+}

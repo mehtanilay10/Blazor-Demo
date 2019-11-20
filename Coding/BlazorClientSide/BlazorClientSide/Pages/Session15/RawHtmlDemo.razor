@@ -1,0 +1,11 @@
+﻿@page  "/Session15/RawHtmlDemo"
+
+<h3>RawHtmlDemo</h3>
+
+<b>Title: </b>@ItemTitle <br />
+<b>Price: </b>@((MarkupString)@ItemPrice)
+
+@code {
+    private string ItemTitle { get; set; } = "Ink Pen";
+    private string ItemPrice { get; set; } = "<big>$</big> <s>20</s> <b>10</b>";
+}

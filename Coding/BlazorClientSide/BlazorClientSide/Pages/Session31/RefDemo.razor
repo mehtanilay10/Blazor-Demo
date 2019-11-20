@@ -1,0 +1,17 @@
+﻿@page "/Session31/RefDemo"
+
+<h3>RefDemo</h3>
+
+<button class="btn btn-dark" @onclick="@ToggleContent">Toggle Content</button>
+
+<MainContent @ref="@mainContent"></MainContent>
+
+@code {
+
+    MainContent mainContent;
+
+    private void ToggleContent()
+    {
+        mainContent.ToggleContent();
+    }
+}

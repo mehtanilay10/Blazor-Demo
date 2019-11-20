@@ -1,0 +1,55 @@
+﻿@page  "/Session30/StudentForm"
+
+<h3>StudentForm</h3>
+
+<EditForm Model="@model" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="FullName">Full Name</label>
+        <InputText Id="FullName" @bind-Value="@model.FullName" class="form-control"></InputText>
+        <ValidationMessage For="@(() => model.FullName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth</label>
+        <InputDate Id="DateOfBirth" @bind-Value="@model.DateOfBirth" class="form-control"></InputDate>
+        <ValidationMessage For="@(() => model.DateOfBirth)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <InputNumber Id="Age" @bind-Value="@model.Age" class="form-control"></InputNumber>
+        <ValidationMessage For="@(() => model.Age)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Country">Country</label>
+        <InputSelect Id="Country" @bind-Value="@model.Country" class="form-control">
+            <option value="">-- Select --</option>
+            <option value="US">US</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+        </InputSelect>
+        <ValidationMessage For="@(() => model.Country)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</EditForm>
+
+@code{
+
+    StudentFormModel model = new StudentFormModel();
+
+    private void OnValidSubmit()
+    {
+        Console.WriteLine(model);
+    }
+
+    private void OnInvalidSubmit()
+    {
+        Console.WriteLine("Submitted Invalid Form");
+    }
+}

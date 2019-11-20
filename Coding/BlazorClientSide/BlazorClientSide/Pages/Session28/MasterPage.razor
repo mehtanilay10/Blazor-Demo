@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager UriHelper
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Blazor Demo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <NavLink class="nav-item nav-link" href="/Session28/HomePage">Home</NavLink>
+            <NavLink class="nav-item nav-link" href="/Session28/AboutPage">About</NavLink>
+            <NavLink class="nav-item nav-link" href="/Session28/ContactPage">Contact</NavLink>
+        </div>
+    </div>
+</nav>
+
+<br />
+<button @onclick="@NavigateToHelloPage" class="btn btn-dark">Goto HelloPage</button>
+<br />
+
+@Body
+
+<footer>End of Page</footer>
+
+
+@code{
+    private void NavigateToHelloPage()
+    {
+        UriHelper.NavigateTo("HelloPage");
+    }
+
+    protected override void OnInitialized()
+    {
+        UriHelper.LocationChanged += OnChangingLocation;
+    }
+
+    private void OnChangingLocation(object sender, LocationChangedEventArgs args)
+    {
+        Console.WriteLine($"Change URL: {args.Location}");
+    }
+}

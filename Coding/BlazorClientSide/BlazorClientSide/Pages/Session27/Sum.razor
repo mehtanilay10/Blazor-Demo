@@ -1,0 +1,21 @@
+﻿@page "/Session27/Sum/{Num1:int}"
+@page "/Session27/Sum/{Num1:int}/{Num2:int}"
+
+<h3>Sum</h3>
+@Num1 + @Num2 = @Total
+
+@code {
+    [Parameter]
+    public int Num1 { get; set; }
+
+    [Parameter]
+    public int Num2 { get; set; }
+
+    public int Total
+    {
+        get
+        {
+            return Num1 + Num2;
+        }
+    }
+}

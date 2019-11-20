@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>BlazorClientSide</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <app>Loading...</app>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script type="text/javascript">
+
+        window.getBrowserDetails = function () {
+            return {
+                codeName: navigator.appCodeName,
+                browserName: navigator.appName,
+                browserVersion: navigator.appVersion,
+                cookiesEnabled: navigator.cookieEnabled,
+                browserOnline: navigator.onLine,
+                language: navigator.language,
+                platform: navigator.platform,
+                userAgent: navigator.userAgent,
+            };
+        };
+
+        window.makeSum = function (n1, n2) {
+            this.console.log(`Sum of ${n1} and ${n2} is ${(n1 + n2)}`);
+        };
+
+        window.loadDate = function () {
+            var date = DotNet.invokeMethod('BlazorClientSide', 'LoadDate');
+            console.log(date);
+        };
+
+        window.loadUserDataAsync = function (instance) {
+            instance.invokeMethodAsync('LoadUserDataAsync')
+                .then(data => this.console.log(data));
+        };
+
+    </script>
+</body>
+</html>

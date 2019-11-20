@@ -1,0 +1,13 @@
+﻿<hr />
+<small>&copy; @AuthorName @PublishedDate.Year | @TitleText</small>
+
+@code{
+    [CascadingParameter(Name = "PageTitle")]
+    public string TitleText { get; set; }
+
+    [CascadingParameter(Name = "AuthorName")]
+    public string AuthorName { get; set; }
+
+    [CascadingParameter]
+    public DateTime PublishedDate { get; set; }
+}

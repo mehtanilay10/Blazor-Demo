@@ -1,0 +1,14 @@
+﻿<h3>@TitleText</h3>
+<small>By @AuthorName On @PublishedDate</small>
+<hr />
+
+@code{
+    [CascadingParameter(Name = "PageTitle")]
+    public string TitleText { get; set; }
+
+    [CascadingParameter(Name = "AuthorName")]
+    public string AuthorName { get; set; }
+
+    [CascadingParameter]
+    public DateTime PublishedDate { get; set; }
+}

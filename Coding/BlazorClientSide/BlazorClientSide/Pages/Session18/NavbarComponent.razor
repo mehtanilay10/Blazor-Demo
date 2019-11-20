@@ -1,0 +1,28 @@
+﻿@typeparam TList
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">@BrandTitle</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            @foreach (var item in NavbarItems)
+            {
+                @NavbarTemplate(item)
+            }
+        </div>
+    </div>
+</nav>
+
+@code {
+    [Parameter]
+    public string BrandTitle { get; set; }
+
+    [Parameter]
+    public List<TList> NavbarItems { get; set; }
+
+    [Parameter]
+    public RenderFragment<TList> NavbarTemplate { get; set; }
+}

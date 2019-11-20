@@ -1,0 +1,17 @@
+﻿<h3>MainContent</h3>
+
+@if (ShowContent)
+{
+    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium ante risus, in dignissim nisl dictum sed. Donec ipsum enim, ultrices vel sagittis sed, convallis nec justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tincidunt ante lacus, a sagittis quam luctus eu. Phasellus ullamcorper fermentum tempor. Cras nec euismod neque, sed pretium lacus. Suspendisse potenti. Etiam volutpat pharetra justo, ut elementum odio porta et. Pellentesque volutpat, tellus vel efficitur ultricies, mi nisi scelerisque arcu, non pharetra mauris sapien et erat.</p>
+    <p class="text-justify">Nullam vitae vestibulum risus, sed tempor erat. Nunc eget metus lacus. In eget massa et eros vehicula ultrices quis vel quam. Curabitur et tincidunt nibh, id consequat dolor. Etiam mollis molestie dignissim. Mauris mollis mi enim, ac placerat mauris imperdiet quis. Phasellus at ante sit amet nibh maximus faucibus ac id nisi. Phasellus sed quam purus. Nunc sed ipsum eu sapien iaculis dapibus sit amet eget ipsum. Vestibulum tincidunt interdum lacus, a rutrum risus maximus ac. Aliquam erat volutpat.</p>
+}
+
+@code{
+    private bool ShowContent { get; set; } = true;
+
+    public void ToggleContent()
+    {
+        ShowContent = !ShowContent;
+        this.StateHasChanged();
+    }
+}

@@ -1,0 +1,16 @@
+﻿@if (!string.IsNullOrEmpty(Title))
+{
+    <h3>@Title</h3>
+}
+
+<p>@ChildContent</p>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

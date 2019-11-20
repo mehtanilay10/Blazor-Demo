@@ -1,0 +1,24 @@
+﻿@page "/Session19/TreeBuilderDemo"
+
+<h3>TreeBuilderDemo</h3>
+
+@PersonDetailsFragment
+
+<button @onclick="@AddPersonDetails">Add Person</button>
+
+@code {
+    private RenderFragment PersonDetailsFragment { get; set; }
+
+    private void AddPersonDetails()
+    {
+        PersonDetailsFragment = BuildPerson();
+    }
+
+    private RenderFragment BuildPerson() => builder =>
+    {
+        builder.OpenComponent(0, typeof(PersonDetails));
+        builder.AddAttribute(1, "Name", "Nilay");
+        builder.AddAttribute(2, "Mobile", "9876543210");
+        builder.CloseComponent();
+    };
+}

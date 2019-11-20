@@ -1,0 +1,56 @@
+﻿@page "/Session34/BrowserDetailsPage"
+@inject IJSRuntime jsRuntime
+
+<h3>BrowserDetailsPage</h3>
+<div>
+    <button class="btn btn-dark" @onclick="@LoadBrowserDetails">Load Browser detials</button>
+    <button class="btn btn-dark" @onclick="@MakeSumOf2Numbers">Make Sum of 2 numbers</button>
+</div>
+
+@if (browserDetails != null)
+{
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>CodeName</th>
+            <td>@browserDetails.codeName</td>
+        </tr>
+        <tr>
+            <th>Browser Name</th>
+            <td>@browserDetails.browserName</td>
+        </tr>
+        <tr>
+            <th>Browser Version</th>
+            <td>@browserDetails.browserVersion</td>
+        </tr>
+        <tr>
+            <th>Is Cookies Enabled</th>
+            <td>@browserDetails.cookiesEnabled</td>
+        </tr>
+        <tr>
+            <th>Is Browser Online</th>
+            <td>@browserDetails.browserOnline</td>
+        </tr>
+        <tr>
+            <th>Platform</th>
+            <td>@browserDetails.platform</td>
+        </tr>
+        <tr>
+            <th>User Agent</th>
+            <td>@browserDetails.userAgent</td>
+        </tr>
+    </table>
+}
+
+@code {
+    private BrowserDetailsModel browserDetails;
+
+    protected async Task LoadBrowserDetails()
+    {
+        browserDetails = await jsRuntime.InvokeAsync<BrowserDetailsModel>("getBrowserDetails");
+    }
+
+    protected async Task MakeSumOf2Numbers()
+    {
+        await jsRuntime.InvokeAsync<object>("makeSum", 10, 20);
+    }
+}

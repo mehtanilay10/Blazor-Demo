@@ -1,0 +1,27 @@
+﻿@page  "/Session14/ParentControl"
+
+<h3>ParentControl</h3>
+
+<CheckBoxComponent CheckboxText="1st Checkbox"
+                   CheckboxValue="first"
+                   CheckboxId="chkFirst"
+                   OnCheckChange="@FirstCheckBoxHandler">
+</CheckBoxComponent>
+
+<CheckBoxComponent CheckboxText="2st Checkbox"
+                   CheckboxValue="second"
+                   CheckboxId="chkSecond"
+                   OnCheckChange="@SecondCheckBoxHandler">
+</CheckBoxComponent>
+
+@code {
+    private void FirstCheckBoxHandler(ChangeEventArgs e)
+    {
+        Console.WriteLine($"Is first checkbox selected: {e.Value}");
+    }
+
+    private void SecondCheckBoxHandler(ChangeEventArgs e)
+    {
+        Console.WriteLine($"Second checkbox changed");
+    }
+}

@@ -1,0 +1,27 @@
+﻿
+
+
+<h3>@TitleText</h3>
+<small>By @AuthorName On @PublishedDate</small>
+
+<button @onclick="@UpdateValue">Update Value</button>
+<hr />
+
+@code{
+    [CascadingParameter(Name = "PageTitle")]
+    public string TitleText { get; set; }
+
+    [CascadingParameter(Name = "AuthorName")]
+    public string AuthorName { get; set; }
+
+    [CascadingParameter]
+    public DateTime PublishedDate { get; set; }
+
+    [Parameter]
+    public Action<DateTime> OnChangePublishedDate { get; set; }
+
+    private void UpdateValue()
+    {
+        this.OnChangePublishedDate?.Invoke(PublishedDate.AddYears(1));
+    }
+}

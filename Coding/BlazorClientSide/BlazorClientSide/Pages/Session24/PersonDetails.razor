@@ -1,0 +1,10 @@
+﻿<div id="@person.Id" class="card">
+    <p><b>Id:</b> @person.Id</p>
+    <p><b>FirstName:</b> @person.FirstName</p>
+    <p><b>LastName:</b> @person.LastName</p>
+</div>
+
+@code {
+    [Parameter]
+    public Person person { get; set; }
+}

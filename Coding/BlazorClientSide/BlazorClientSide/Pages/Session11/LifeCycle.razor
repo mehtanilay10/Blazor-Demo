@@ -1,0 +1,21 @@
+﻿@page "/Session11/LiffeCycle"
+
+<h3>LifeCycle</h3>
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("In OnInit");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine("In OnParametersSet");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine("In OnAfterRender");
+    }
+}

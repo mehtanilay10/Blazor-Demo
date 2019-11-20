@@ -1,0 +1,49 @@
+﻿@if (detailsModel != null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <img src="@detailsModel.avatar_url" />
+            </div>
+            <div class="col-sm-7">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Username</th>
+                        <td>@detailsModel.login</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>@detailsModel.name</td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td>@detailsModel.location</td>
+                    </tr>
+                    <tr>
+                        <th>Blog</th>
+                        <td>@detailsModel.blog</td>
+                    </tr>
+                    <tr>
+                        <th>Profile</th>
+                        <td>@detailsModel.html_url</td>
+                    </tr>
+                    <tr>
+                        <th>User Since</th>
+                        <td>@detailsModel.created_at</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@code{
+
+    private GithubProfileDetailsModel detailsModel = null;
+
+    public void LoadData(GithubProfileDetailsModel profileDetailsModel)
+    {
+        detailsModel = profileDetailsModel;
+        this.StateHasChanged();
+    }
+}

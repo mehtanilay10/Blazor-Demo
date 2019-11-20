@@ -1,0 +1,23 @@
+﻿
+
+<div class="card">
+    <div class="card-body">
+        <blockquote class="blockquote">
+            <p class="mb-0">@QuoteText</p>
+            <footer class="blockquote-footer">@AutherName <cite title="@Category">@Category</cite></footer>
+        </blockquote>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public string QuoteText { get; set; }
+
+    [Parameter]
+    public string AutherName { get; set; }
+
+    [Parameter]
+    public string Category { get; set; }
+
+}

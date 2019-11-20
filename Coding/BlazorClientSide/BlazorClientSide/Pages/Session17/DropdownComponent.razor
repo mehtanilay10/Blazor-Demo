@@ -1,0 +1,26 @@
+﻿<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        @ButtonText
+    </button>
+    <div class="dropdown-menu">
+        @MenuItem1
+
+        @if (@MenuItem2 != null)
+        {
+            <div class="dropdown-divider"></div>
+            @MenuItem2
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string ButtonText { get; set; }
+
+    [Parameter]
+    public RenderFragment MenuItem1 { get; set; }
+
+    [Parameter]
+    public RenderFragment MenuItem2 { get; set; }
+}

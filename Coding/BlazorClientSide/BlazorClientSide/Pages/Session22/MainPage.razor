@@ -1,0 +1,17 @@
+﻿@page "/Session22/MainPage"
+
+<CascadingValue Value="@PageTitle" Name="PageTitle">
+    <CascadingValue Value="@PublishedDate">
+        <CascadingValue Value="@AuthorName" Name="AuthorName">
+            <PageTitle></PageTitle>
+            <PageBody></PageBody>
+            <PageFooter></PageFooter>
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    public string PageTitle { get; set; } = "Hello Page";
+    public DateTime PublishedDate { get; set; } = DateTime.Now;
+    public string AuthorName { get; set; } = "Nilay";
+}

@@ -1,0 +1,19 @@
+﻿@page "/Session18/NavBarDemo"
+
+<h3>NavbarDemo</h3>
+
+<NavbarComponent BrandTitle="Blazor Tutorials" NavbarItems="navItems" TList="LinkDetails">
+    <NavbarTemplate Context="navItem">
+        <a class="nav-item nav-link" href="@navItem.Link">@navItem.Title</a>
+    </NavbarTemplate>
+</NavbarComponent>
+
+@code {
+    private List<LinkDetails> navItems = new List<LinkDetails>
+{
+    new LinkDetails {Title="Home", Link = "/Home"},
+    new LinkDetails {Title="About Us", Link="/AboutUs"},
+    new LinkDetails {Title="Contact Us", Link="/ContactUs"},
+    new LinkDetails {Title="Feedback", Link="/Feedback"}
+};
+}

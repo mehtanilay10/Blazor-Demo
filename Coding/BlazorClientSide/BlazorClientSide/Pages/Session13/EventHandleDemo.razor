@@ -1,0 +1,17 @@
+﻿@page "/Session13/EventHandleDemo"
+
+<h3>EventHandleDemo</h3>
+
+<button @onclick="@ToggleDisplayText">Toggle Text</button>
+<p>@DisplayText</p>
+
+@code {
+    private string DisplayText { get; set; } = "Hello!";
+
+    private void ToggleDisplayText(MouseEventArgs e)
+    {
+        DisplayText = (DisplayText.Equals("Hello!"))
+            ? "Hello world!"
+            : "Hello!";
+    }
+}

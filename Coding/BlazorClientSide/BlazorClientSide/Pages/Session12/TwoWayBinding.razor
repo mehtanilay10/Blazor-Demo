@@ -1,0 +1,26 @@
+﻿@page "/Session12/TwoWayBinding"
+
+<h3>TwoWayBinding</h3>
+
+<div class="form-group">
+    <label for="FullName">FullName:</label>
+    <input type="text" class="form-control" id="FullName" @bind-value="@FullName" @bind-value:event="oninput" />
+</div>
+
+<div class="form-group">
+    <label for="Age">Age:</label>
+    <input type="number" class="form-control" id="Age" @bind="@Age" />
+</div>
+
+<div class="form-group">
+    <label for="BirthDate">BirthDate:</label>
+    <input type="text" class="form-control" id="BirthDate" @bind="@BirthDate" @bind:format="dd-MM-yy" />
+</div>
+
+<p class="lead">FullName: @FullName<br />Age: @Age<br />BirthDate: @BirthDate</p>
+
+@code {
+    private string FullName { get; set; } = "Bill Gates";
+    private int Age { get; set; } = 63;
+    private DateTime BirthDate { get; set; } = new DateTime(1955, 10, 28);
+}

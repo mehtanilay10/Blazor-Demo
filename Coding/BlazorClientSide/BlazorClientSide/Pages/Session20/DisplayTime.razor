@@ -1,0 +1,40 @@
+﻿@page "/Session20/DisplayTime"
+@using System.Threading;
+
+<h3>DisplayTime</h3>
+
+<button @onclick="@UpdateCurrentTime">Update Time</button>
+<button @onclick="@ToggleRendering">Toggle Rendering</button>
+<button @onclick="@StartTimer">Start Timer</button>
+
+<p>@CurrentTime.ToLongTimeString()</p>
+
+@code {
+
+    private bool shouldRenderUIChanges = true;
+    private DateTime CurrentTime { get; set; } = DateTime.Now;
+
+    private void UpdateCurrentTime(MouseEventArgs e)
+    {
+        CurrentTime = DateTime.Now;
+    }
+
+    private void ToggleRendering(MouseEventArgs e)
+    {
+        shouldRenderUIChanges = !shouldRenderUIChanges;
+    }
+
+    protected override bool ShouldRender()
+    {
+        return shouldRenderUIChanges;
+    }
+
+    private void StartTimer(MouseEventArgs e)
+    {
+        var timer = new Timer(new TimerCallback(state =>
+        {
+            CurrentTime = DateTime.Now;
+            this.StateHasChanged();
+        }), null, 1000, 1000);
+    }
+}

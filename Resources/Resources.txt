@@ -1,0 +1,62 @@
+Session-4
+##################################################################
+- Download Visual Studio 
+https://www.visualstudio.com/downloads/
+
+- Downlaod ASP.Net Core 
+https://dotnet.microsoft.com/download/dotnet-core
+
+- Blazor Extension
+https://marketplace.visualstudio.com/items?itemName=aspnet.blazor
+
+- Blazor Templates
+dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview6.19307.2
+
+- Blazor Docs
+https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.0
+
+
+
+Session-37
+##################################################################
+- IL Spy Plugin
+https://marketplace.visualstudio.com/items?itemName=SharpDevelopTeam.ILSpy
+
+- IL Spy Portable
+https://github.com/icsharpcode/ILSpy/releases
+
+
+
+Session-39
+##################################################################
+Preview-8 Changelog
+https://devblogs.microsoft.com/aspnet/asp-net-core-and-blazor-updates-in-net-core-3-0-preview-8/
+
+Preview-9 Changelog
+https://devblogs.microsoft.com/aspnet/asp-net-core-and-blazor-updates-in-net-core-3-0-preview-9/
+
+
+
+Session-41
+##################################################################
+https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-core-3-1-preview-1/
+
+
+
+Bonus Lecture
+##################################################################
+
+ - YouTube Channel
+http://www.youtube.com/c/TutorialsTeam
+
+ - Official Site
+http://www.MNilay.com/TutorialsTeam/
+
+ - Facebook Page
+https://www.facebook.com/TutorialsTeamOfficial/
+
+ - My Blog
+http://www.MNilay.com/blog/
+
+ - Offers on other Udemy courses
+http://www.MNilay.com/Offers/

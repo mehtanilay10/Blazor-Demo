@@ -1,0 +1,20 @@
+﻿@page "/Session12/OneWayBinding"
+
+<h3>OneWayBinding</h3>
+
+<div class="form-group">
+    <label for="FullName">FullName:</label>
+    <input type="text" class="form-control" id="FullName" value="@FullName" />
+</div>
+
+<div class="form-group">
+    <label for="Age">Age:</label>
+    <input type="number" class="form-control" id="Age" value="@Age" />
+</div>
+
+<p class="lead">FullName: @FullName<br />Age: @Age</p>
+
+@code {
+    private string FullName { get; set; } = "Bill Gates";
+    private int Age { get; set; } = 63;
+}

@@ -1,0 +1,22 @@
+﻿@page "/Session35/JSRuntimeInterop"
+@inject IJSRuntime jsRuntime
+
+<h3>JSRuntimeInterop</h3>
+<div>
+    <button class="btn btn-dark" onclick="window.loadDate()">Load Date</button>
+    <button class="btn btn-dark" @onclick="@LoadUserData">Load User Data</button>
+</div>
+
+@code {
+    [JSInvokable]
+    public static DateTime LoadDate()
+    {
+        return DateTime.Now;
+    }
+
+    private async void LoadUserData()
+    {
+        UserData data = new UserData(new List<string> { "Hello", "World!" });
+        await jsRuntime.InvokeAsync<object>("loadUserDataAsync", DotNetObjectReference.Create(data));
+    }
+}
